@@ -22,8 +22,8 @@ function Calendar({
   // 生成年份选项（比如从1900年到当前年份）
   const years = Array.from({ length: new Date().getFullYear() - 1900 + 1 }, (_, i) => 1900 + i);
   const months = [
-    "一月", "二月", "三月", "四月", "五月", "六月",
-    "七月", "八月", "九月", "十月", "十一月", "十二月"
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
   ];
 
   return (
@@ -79,12 +79,12 @@ function Calendar({
               onValueChange={(value) => setYear(parseInt(value))}
             >
               <SelectTrigger className="w-[100px]">
-                <SelectValue placeholder="年份" />
+                <SelectValue placeholder="Year" />
               </SelectTrigger>
               <SelectContent>
                 {years.reverse().map((y) => (
                   <SelectItem key={y} value={y.toString()}>
-                    {y}年
+                    {y}
                   </SelectItem>
                 ))}
               </SelectContent>
@@ -94,7 +94,7 @@ function Calendar({
               onValueChange={(value) => setMonth(parseInt(value))}
             >
               <SelectTrigger className="w-[100px]">
-                <SelectValue placeholder="月份" />
+                <SelectValue placeholder="Month" />
               </SelectTrigger>
               <SelectContent>
                 {months.map((m, i) => (

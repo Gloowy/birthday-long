@@ -33,8 +33,8 @@ export default function Home() {
         className="max-w-md mx-auto bg-white rounded-2xl shadow-xl p-6 space-y-8"
       >
         <div className="text-center space-y-2">
-          <h1 className="text-3xl font-bold text-gray-800">生命计时器</h1>
-          <p className="text-gray-600">探索你在这个世界上的每一天</p>
+          <h1 className="text-3xl font-bold text-gray-800">Life Journey Timer</h1>
+          <p className="text-gray-600">Discover the Story of Your Days</p>
         </div>
 
         <div className="flex flex-col items-center space-y-6">
@@ -51,7 +51,7 @@ export default function Home() {
               onClick={handleCalculate}
               className="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
             >
-              计算生命时光
+              Calculate My Life Journey
             </button>
           )}
 
@@ -62,16 +62,16 @@ export default function Home() {
               className="text-center space-y-4"
             >
               <p className="text-lg text-gray-700">
-                从 {selectedDate.toLocaleDateString('zh-CN')} 至今
+                From {selectedDate.toLocaleDateString('en-US')} until today
               </p>
               <div className="flex flex-col items-center">
                 <span className="text-4xl font-bold text-purple-600">
                   {daysLived.toLocaleString()}
                 </span>
-                <span className="text-gray-600">天的精彩人生</span>
+                <span className="text-gray-600">Days of Beautiful Journey</span>
               </div>
               <p className="text-sm text-gray-500 max-w-xs mx-auto">
-                每一天都是独特的礼物，继续创造属于你的精彩故事
+                Every day is a unique gift. Continue writing your extraordinary story.
               </p>
             </motion.div>
           )}
