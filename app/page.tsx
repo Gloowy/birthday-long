@@ -8,14 +8,20 @@ import { motion } from "framer-motion";
 export default function Home() {
   const [selectedDate, setSelectedDate] = React.useState<Date>();
   const [daysLived, setDaysLived] = React.useState<number | null>(null);
+  const [showResult, setShowResult] = React.useState(false);
 
   const handleDateSelect = (date: Date | undefined) => {
     setSelectedDate(date);
-    if (date) {
+    setShowResult(false);
+  };
+
+  const handleCalculate = () => {
+    if (selectedDate) {
       const today = new Date();
-      const timeDiff = today.getTime() - date.getTime();
+      const timeDiff = today.getTime() - selectedDate.getTime();
       const daysDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
       setDaysLived(daysDiff);
+      setShowResult(true);
     }
   };
 
@@ -40,7 +46,16 @@ export default function Home() {
             disabled={(date) => date > new Date()}
           />
 
-          {daysLived !== null && selectedDate && (
+          {selectedDate && (
+            <button
+              onClick={handleCalculate}
+              className="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+            >
+              计算生命时光
+            </button>
+          )}
+
+          {showResult && daysLived !== null && selectedDate && (
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
