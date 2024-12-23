@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "生命计时器",
-  description: "探索你在这个世界上的每一天",
+  title: "DayCounter — Track Your Life's Beautiful Journey",
+  description: "Transform your life story into numbers. A beautiful way to visualize your journey from any starting point to today, helping you appreciate every moment of your extraordinary path.",
 };
 
 export default function RootLayout({
