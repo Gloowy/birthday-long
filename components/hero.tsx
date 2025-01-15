@@ -1,8 +1,13 @@
-import { MoveRight, PhoneCall } from "lucide-react";
+import { MoveDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
 function Hero() {
+  const handleScrollToCalculator = () => {
+    const calculatorSection = document.querySelector('#calculator-section');
+    calculatorSection?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className="w-full py-20 lg:py-40">
       <div className="container mx-auto">
@@ -19,16 +24,19 @@ function Hero() {
                 Every day is a new chapter in your life story. Our Life Journey Timer helps you appreciate the magnitude of your journey, celebrating each moment from your beginning until today.
               </p>
             </div>
-            <div className="flex flex-row gap-4">
-              <Button size="lg" className="gap-4" variant="outline">
-                Share Your Story <PhoneCall className="w-4 h-4" />
-              </Button>
-              <Button size="lg" className="gap-4">
-                Start Now <MoveRight className="w-4 h-4" />
+            <div>
+              <Button size="lg" className="gap-2" onClick={handleScrollToCalculator}>
+                Calculate it now <MoveDown className="w-4 h-4" />
               </Button>
             </div>
           </div>
-          <div className="bg-muted rounded-md aspect-square"></div>
+          <div className="bg-muted rounded-md aspect-square">
+            <img 
+              src="/hero-image.jpg" 
+              alt="Life Journey Visualization" 
+              className="w-full h-full object-cover rounded-md"
+            />
+          </div>
         </div>
       </div>
     </div>

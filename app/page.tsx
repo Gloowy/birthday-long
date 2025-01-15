@@ -5,6 +5,7 @@ import { Calendar } from "@/components/ui/calendar";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { Hero } from "@/components/hero";
+import { Footer } from "@/components/footer";
 
 export default function Home() {
   const [selectedDate, setSelectedDate] = React.useState<Date>();
@@ -29,7 +30,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-purple-50 to-pink-50">
       <Hero />
-      <div className="py-12 px-4">
+      <div className="py-12 px-4" id="calculator-section">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -38,6 +39,10 @@ export default function Home() {
           <div className="text-center space-y-2">
             <h1 className="text-3xl font-bold text-gray-800">Life Journey Timer</h1>
             <p className="text-gray-600">Discover the Story of Your Days</p>
+          </div>
+
+          <div className="text-center text-gray-600">
+            <p className="text-lg">Select your birth date and click to calculate how far you've come in your life journey.</p>
           </div>
 
           <div className="flex flex-col items-center space-y-6">
@@ -81,6 +86,7 @@ export default function Home() {
           </div>
         </motion.div>
       </div>
+      <Footer />
     </div>
   );
 }
