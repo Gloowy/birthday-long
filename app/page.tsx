@@ -7,12 +7,13 @@ import { motion } from "framer-motion";
 import { Hero } from "@/components/hero";
 import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight } from "lucide-react";
 
 export default function Home() {
   const [selectedDate, setSelectedDate] = React.useState<Date>();
   const [daysLived, setDaysLived] = React.useState<number | null>(null);
   const [showResult, setShowResult] = React.useState(false);
+
+  const resultRef = React.useRef<HTMLDivElement>(null);
 
   const handleDateSelect = (date: Date | undefined) => {
     setSelectedDate(date);
@@ -26,6 +27,13 @@ export default function Home() {
       const daysDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
       setDaysLived(daysDiff);
       setShowResult(true);
+
+      setTimeout(() => {
+        resultRef.current?.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'center'
+        });
+      }, 100);
     }
   };
 
@@ -77,15 +85,15 @@ export default function Home() {
                   )}
                 />
                 
-                <div className="relative flex items-center justify-center gap-2">
+                <div className="relative flex items-center justify-center">
                   <span className="text-white dark:text-zinc-900">Calculate My Life Journey</span>
-                  <ArrowUpRight className="w-4 h-4 text-white/90 dark:text-zinc-900/90" />
                 </div>
               </Button>
             )}
 
             {showResult && daysLived !== null && selectedDate && (
               <motion.div
+                ref={resultRef}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 className="text-center space-y-4"
