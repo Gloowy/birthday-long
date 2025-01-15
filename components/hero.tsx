@@ -32,7 +32,7 @@ function Hero() {
           </div>
           <div className="bg-muted rounded-md aspect-square">
             <img 
-              src="/hero-image.jpg" 
+              src="/hero-image.png" 
               alt="Life Journey Visualization" 
               className="w-full h-full object-cover rounded-md"
             />

@@ -32,8 +32,8 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-purple-50 to-pink-50">
       <Hero />
-      <div className="py-12 px-4" id="calculator-section">
-        <div className="max-w-md mx-auto mb-6 text-center space-y-3">
+      <div className="pt-4 pb-12 px-4" id="calculator-section">
+        <div className="max-w-md mx-auto mb-4 text-center">
           <h2 className="text-2xl font-medium text-gray-800">
             Select your birth date and click to calculate how far you've come in your life journey.
           </h2>
