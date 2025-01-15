@@ -6,6 +6,8 @@ import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { Hero } from "@/components/hero";
 import { Footer } from "@/components/footer";
+import { Button } from "@/components/ui/button";
+import { ArrowUpRight } from "lucide-react";
 
 export default function Home() {
   const [selectedDate, setSelectedDate] = React.useState<Date>();
@@ -31,6 +33,12 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-b from-purple-50 to-pink-50">
       <Hero />
       <div className="py-12 px-4" id="calculator-section">
+        <div className="max-w-md mx-auto mb-6 text-center space-y-3">
+          <h2 className="text-2xl font-medium text-gray-800">
+            Select your birth date and click to calculate how far you've come in your life journey.
+          </h2>
+        </div>
+
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -39,10 +47,6 @@ export default function Home() {
           <div className="text-center space-y-2">
             <h1 className="text-3xl font-bold text-gray-800">Life Journey Timer</h1>
             <p className="text-gray-600">Discover the Story of Your Days</p>
-          </div>
-
-          <div className="text-center text-gray-600">
-            <p className="text-lg">Select your birth date and click to calculate how far you've come in your life journey.</p>
           </div>
 
           <div className="flex flex-col items-center space-y-6">
@@ -55,12 +59,29 @@ export default function Home() {
             />
 
             {selectedDate && (
-              <button
+              <Button
                 onClick={handleCalculate}
-                className="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                className={cn(
+                  "relative h-12 px-6 overflow-hidden",
+                  "bg-zinc-900 dark:bg-zinc-100",
+                  "transition-all duration-200",
+                  "group w-full max-w-xs"
+                )}
               >
-                Calculate My Life Journey
-              </button>
+                <div
+                  className={cn(
+                    "absolute inset-0",
+                    "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500",
+                    "opacity-40 group-hover:opacity-80",
+                    "blur transition-opacity duration-500"
+                  )}
+                />
+                
+                <div className="relative flex items-center justify-center gap-2">
+                  <span className="text-white dark:text-zinc-900">Calculate My Life Journey</span>
+                  <ArrowUpRight className="w-4 h-4 text-white/90 dark:text-zinc-900/90" />
+                </div>
+              </Button>
             )}
 
             {showResult && daysLived !== null && selectedDate && (
